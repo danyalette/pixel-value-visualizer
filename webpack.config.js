@@ -19,15 +19,18 @@ module.exports = {
       {
           test: /\.js?$/,
           exclude: /node_modules/,
-          use: ['babel-loader'],
-          options:
-            {
-              presets:['es2015', 'es2016', 'es2017', { "modules": false }],
-              "plugins": [
-                "syntax-async-functions",
-                "transform-object-rest-spread"
-              ]
-            }
+          use: {
+            loader: 'babel-loader',
+            query:
+              {
+                presets:['es2015', 'es2016', 'es2017'],
+                "plugins": [
+                  "syntax-async-functions",
+                  "transform-object-rest-spread"
+                ]
+              }
+          },
+
       },
       {
           test: /\.s?css$/,
